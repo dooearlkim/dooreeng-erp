@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0E1B26">
+<title>두레이엔지 업무관리</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+
+<!-- 로그인 -->
+<section id="login" class="login" hidden>
+  <div class="login-card">
+    <img src="assets/logo.png" alt="두레이엔지" class="login-logo">
+    <h1>업무관리</h1>
+    <form id="login-form" class="stack">
+      <label for="l-id">아이디</label>
+      <input id="l-id" type="text" autocomplete="username" autocapitalize="off" required>
+      <label for="l-pw">비밀번호</label>
+      <input id="l-pw" type="password" autocomplete="current-password" required>
+      <button type="submit" class="btn primary">로그인</button>
+    </form>
+    <form id="q-form" class="stack" hidden>
+      <p class="hint">2단계 확인</p>
+      <label for="q-ans" id="q-text">질문</label>
+      <input id="q-ans" type="text" autocomplete="off" required>
+      <button type="submit" class="btn primary" id="q-btn">확인</button>
+      <button type="button" class="btn" id="q-cancel">처음으로</button>
+    </form>
+    <p id="login-msg" class="msg err" role="status"></p>
+  </div>
+</section>
+
+<!-- 앱 -->
+<div id="app" class="app" hidden>
+  <header class="topbar">
+    <a href="#/home" class="brand"><img src="assets/logo.png" alt=""><span>두레이엔지 업무관리</span></a>
+    <div class="top-actions">
+      <label class="year-pick"><span class="sr">기준 연도</span><select id="year"></select></label>
+      <button type="button" class="btn small ghost" id="refresh" aria-label="새로고침">↻</button>
+      <button type="button" class="btn small ghost" id="logout">로그아웃</button>
+    </div>
+  </header>
+  <nav class="nav" id="nav" aria-label="메뉴"></nav>
+  <main id="view" class="view" tabindex="-1"></main>
+</div>
+
+<dialog id="dlg" class="dlg"><div id="dlg-body"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
